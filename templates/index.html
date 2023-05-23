@@ -1,27 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="bg-slate-50 flex flex-col items-center border rounded-md p-5 mb-5 w-[50vh]">
-    
-        <h1 class="text-3xl font-bold text-slate-700">Tweelities</h1>
-        <p class="text-xs text-gray-500">Convert @username to ID (vice versa)</p>
-    
+<div class="bg-slate-50 flex flex-col items-center border rounded-md p-5 mb-5 w-96">
+    <h1 class="text-3xl font-bold text-slate-700">Tweelities</h1>
+    <p class="text-xs text-gray-500">Convert @username to ID (vice versa)</p>
+    <hr class="my-2 w-96 divide-y-2">
     <form class="flex flex-col items-center" action="" method="post">
         <input class="my-2 text-sm text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="username" id="username" placeholder="@username or ID">
-        <button class="w-full bg-blue-500 focus:bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:shadow-outline">Convert</button>
+        <button class="w-full bg-blue-500 focus:bg-blue-700 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:shadow-outline shadow-lg">Convert</button>
     </form>
 </div>
-<div id="result" class="bg-slate-50 flex flex-col items-center border rounded-md p-1 mb-5 w-[50vh] divide-y">
+<div id="result" class="bg-slate-50 flex flex-col items-center border rounded-md w-96 p-1 mb-5 divide-y">
     <h5 class="font-bold text-slate-700">Result</h5>
     <div class="flex w-full p-2">
         <p class="grow text-sm text-center text-gray-500">{{ twitter_username }}</p>
         <p class="grow text-sm text-center">{{ twitter_id }}</p>
         {% if is_user_found == False == is_id_found %}
-        <p class="grow text-sm text-center">user was not found!</p>
+        <p class="grow text-sm text-center text-red-900">user was not found!</p>
         {% endif %}
     </div>
 </div>
-<div class="bg-slate-50 flex flex-col items-center border rounded-md p-1 mb-5 w-[50vh] divide-y">
+<div class="bg-slate-50 flex flex-col items-center border rounded-md w-96 p-1 mb-5 divide-y">
     <h5 class="font-bold text-slate-700">Send Private Message Link</h5>
     <div class="flex w-full flex-row rounded py-2">
         <span class="text-xs text-gray-500 px-5">{{ compose_url }}</span>
